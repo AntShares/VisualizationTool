@@ -136,7 +136,6 @@ if ($(window).width() < 750){
             .text( function (d) {
                 moment().format("dddd, MMMM Do YYYY, h:mm:ss");
                 var day = moment.unix(data.time);
-
                 return day.format("MMMM Do YYYY, h:mm:ss"); })
             .attr("x", 110)
             .attr("y", 30)
@@ -205,7 +204,7 @@ else{
     svg11.append("text")
         .attr("x", 150)
         .attr("y", 0)
-        .text("timestamp")
+        .text("Timestamp")
         .attr("font-family", "Lato")
         .attr("font-size", "30px")
         .attr("fill", "white");
@@ -305,7 +304,8 @@ else{
             //.delay(500)
             .text( function (d) {
                 var day = moment.unix(data.time);
-
+                day = day.format("dddd, MMMM Do YYYY, h:mm:ss a");
+                //console.log(day);
                 return day; })
             .attr("x", 150)
             .attr("y", 30)

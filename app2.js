@@ -177,7 +177,7 @@ else{
     svg11.append("text")
         .attr("x", 20)
         .attr("y", 0)
-        .text("TRan")
+        .text("Transations")
         .attr("font-family", "Lato")
         .attr("font-size", "30px")
         .attr("fill", "white");
