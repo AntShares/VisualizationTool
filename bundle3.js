@@ -211,7 +211,7 @@ else{
         .attr("fill", "white");
 
     svg11.append("text")
-        .attr("x", 460)
+        .attr("x", 430)
         .attr("y", 0)
         .text("Transations")
         .attr("font-family", "Lato")
@@ -221,7 +221,7 @@ else{
     svg11.append("text")
         .attr("x", 720)
         .attr("y", 0)
-        .text("Nonce")
+        .text("Hash")
         .attr("font-family", "Lato")
         .attr("font-size", "30px")
         .attr("fill", "white");
@@ -328,14 +328,14 @@ else{
 
         mainsvg_newblock
             .append("text")
-            .attr("x", 850)
+            .attr("x", 650)
             .attr("y", 30)
             .text( function (d) {
                 //d.tx.length();
                 //console.log(d.tx.length);
-                return data.nonce; })
+                return data.hash.slice(0,30)+"..."; })
             .attr("font-family", "Lato")
-            .attr("text-anchor", "end")
+            //.attr("text-anchor", "end")
             .attr("font-size", "14px")
             .attr("fill", "white");
 
