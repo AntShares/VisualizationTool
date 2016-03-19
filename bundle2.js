@@ -3,7 +3,7 @@
  * Created by kimi on 2016/2/15.
  */
 
-console.log("進入App2");
+//console.log("進入App2");
 var moment = require('moment');
 moment().format("dddd, MMMM Do YYYY, h:mm:ss a");
 
@@ -35,7 +35,7 @@ if ($(window).width() < 750){
     svg11.append("text")
         .attr("x", 20)
         .attr("y", 0)
-        .text("Transations")
+        .text("Transaction")
         .attr("font-family", "Lato")
         .attr("font-size", "30px")
         .attr("fill", "white");
@@ -70,8 +70,8 @@ if ($(window).width() < 750){
 
     function addnewtran( data, callback) {
         //return function(notify) {
-        console.log("start to add new tran");
-        console.log(data);
+        //console.log("start to add new tran");
+        //console.log(data);
 
         d3.select("#loader2").remove();
 
@@ -96,8 +96,8 @@ if ($(window).width() < 750){
             //.attr("id","i"+parseInt(data.blockid-2) )
             //.attr("class","block" )
             .style("fill", function(d,i){
-                console.log(data.vout);
-                console.log(data.vout.length);
+                //console.log(data.vout);
+                //console.log(data.vout.length);
                 if (data.vout.length == 0){
                     return "black";
                 }
@@ -130,14 +130,14 @@ if ($(window).width() < 750){
             //.transition()
             //.delay(500)
             .text( function (d) {
-                console.log(data.vout);
-                console.log(data.vout.length);
+                //console.log(data.vout);
+                //console.log(data.vout.length);
                 if (data.vout.length == 0){
                     return "0";
                 }
                 else{
-                    console.log("抓到");
-                    console.log(data.vout[0].value);
+                    //console.log("抓到");
+                    //console.log(data.vout[0].value);
                     return Math.round(data.vout[0].value);
                 }
 
@@ -178,7 +178,7 @@ else{
     svg11.append("text")
         .attr("x", 20)
         .attr("y", 0)
-        .text("Transations")
+        .text("Transaction")
         .attr("font-family", "Lato")
         .attr("font-size", "30px")
         .attr("fill", "white");
@@ -238,8 +238,8 @@ else{
             //.attr("id","i"+parseInt(data.blockid-2) )
             //.attr("class","block" )
             .style("fill", function(d,i){
-                console.log(data.vout);
-                console.log(data.vout.length);
+                //console.log(data.vout);
+                //console.log(data.vout.length);
                 if (data.vout.length == 0){
                     return "black";
                 }
@@ -282,14 +282,14 @@ else{
             //.transition()
             //.delay(500)
             .text( function (d) {
-                console.log(data.vout);
-                console.log(data.vout.length);
+                //console.log(data);
+                //console.log(data.vout.length);
                 if (data.vout.length == 0){
                     return "0";
                 }
                 else{
-                    console.log("抓到");
-                    console.log(data.vout[0].value);
+                    //console.log("抓到");
+                    //console.log(data.vout[0].value);
                     return Math.round(data.vout[0].value);
                 }
 
@@ -317,9 +317,9 @@ else{
 function moveall(arg1, callback) {
     //return function(notify) {
 
-    console.log("Enter moveall");
-    console.log(d3.selectAll(".tran")[0]);
-    console.log(d3.selectAll(".tran")[0].length);
+    //console.log("Enter moveall");
+    //console.log(d3.selectAll(".tran")[0]);
+    //console.log(d3.selectAll(".tran")[0].length);
 
     if (d3.selectAll(".tran")[0].length == 0){
 
@@ -332,8 +332,8 @@ function moveall(arg1, callback) {
             d3.selectAll(".tran")
 
                 .attr("transform", function(d,i){
-                    console.log(this.getAttribute("transform"));
-                    //console.log(d);
+                    //console.log(this.getAttribute("transform"));
+                    ////console.log(d);
                     return  this.getAttribute("transform")+ "translate(0,50)"
                 });
 
@@ -349,15 +349,15 @@ function moveall(arg1, callback) {
                 .duration(500)
 
                 .attr("transform", function(d,i){
-                    console.log(this.getAttribute("transform"));
-                    //console.log(d);
+                    //console.log(this.getAttribute("transform"));
+                    ////console.log(d);
                     return  this.getAttribute("transform")+ "translate(0,50)"
                 })
 
                 //callback(null);
 
                 .call(endall, function() {
-                    console.log("全部完成");
+                    //console.log("全部完成");
                     //d3.selectAll(".tran").transition();
                     //notify(null, "ok");
                     callback(null, arg1);
@@ -409,7 +409,7 @@ async.forever(
 
         function mySecondFunction(arg1,callback) {
 
-            console.log(arg1);
+            //console.log(arg1);
             server_height = arg1-1;
             callback(null);
 
@@ -420,7 +420,7 @@ async.forever(
     function(err) {
         // if next is called with a value in its first parameter, it will appear
         // in here as 'err', and execution will stop.
-        console.log("偵測到錯誤 : "+ err)
+        //console.log("偵測到錯誤 : "+ err)
     }
 );
 
@@ -450,8 +450,8 @@ async.forever(
         function mySecondFunction(callback) {
 
             if (server_height != local_height){
-                console.log("向伺服器尋求新交易");
-                //console.log(server_height);
+                //console.log("向伺服器尋求新交易");
+                ////console.log(server_height);
 
                 async.waterfall([
                     function(callback) {
@@ -462,7 +462,8 @@ async.forever(
                     antapi.getblockinfo ,
                     function(arg1, callback) {
                         // arg1 now equals 'three'
-                        console.log(arg1.tx[0]);
+                        console.log("arg1");
+                        console.log(arg1.tx);
                         callback(null, arg1.tx[0]);
                     },
                     moveall,
@@ -476,7 +477,7 @@ async.forever(
 
             }
             else{
-                console.log("目前區塊與伺服器同步中");
+                //console.log("目前區塊與伺服器同步中");
                 callback(null);
             }
 
@@ -487,7 +488,7 @@ async.forever(
     function(err) {
         // if next is called with a value in its first parameter, it will appear
         // in here as 'err', and execution will stop.
-        console.log("偵測到錯誤 : "+ err)
+        //console.log("偵測到錯誤 : "+ err)
     }
 );
 
